@@ -59,11 +59,9 @@ export class AppComponent implements OnInit{
     if(day.count < parseInt(hijriToday) || day.count == parseInt(hijriToday) &&  time > celebrationTime){
       this.test();
       confetti({
-        particleCount: 7,
-        angle: 60,
-        shapes :['star', 'square', 'circle'],
-        spread: 75,
-        origin: { x: 0 }
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
       });
       // this.celebrate(day);
       console.log(hijriToday);
