@@ -1,6 +1,6 @@
   <div class="main" >
     <h1 class="title">Ramadan Calendar</h1>
-    <h1>{{gift}}</h1>
+    <!-- <h1>{{gift}}</h1> -->
     <div class="grid-boxes">
       <button type="button" class="box-item" *ngFor="let day of days" id="{{day.count}}" (click)="onClickDay(day)" [ngStyle]="{'background-color': colorList[day.count -1]}">
         <h2>{{day.count}}</h2>
@@ -8,10 +8,10 @@
   </div>
 </div>
 
-<p-dialog header="Header" [(visible)]="visible" [style]="{width: '50vw'}">
+<!-- <p-dialog header="Header" [(visible)]="visible" [style]="{width: '50vw'}">
   <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
-</p-dialog>
+</p-dialog> -->
 
