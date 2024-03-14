@@ -8,10 +8,12 @@ import {
   MatDialogContent,
   MatDialogActions,
   MatDialogClose,
+  MatDialogModule,
 } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatButtonModule } from '@angular/material/button';
 import confetti from 'canvas-confetti';
+import { DialogModule } from 'primeng/dialog';
 
 interface Day {
   count: number,
@@ -21,7 +23,7 @@ interface Day {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent, MatButtonModule],
+  imports: [MatDialogModule,RouterOutlet, CommonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent, MatButtonModule, DialogModule ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -31,7 +33,8 @@ export class AppComponent implements OnInit{
   days: Day[] = dayList;
   colorList: string[] = [ "red", "purple", "darkblue", "turquoise", "lime", "brown", "orange", "green", "maroon", "chocolate","blueviolet", "deeppink", "dodgerblue", "crimson",
   "red", "purple", "darkblue", "turquoise", "lime", "brown", "orange", "green", "maroon", "chocolate","blueviolet", "deeppink", "dodgerblue", "crimson", "gold", "orchid"
-]
+];
+  visible: boolean = false;
 
   constructor(public dialog: MatDialog){ }
 
@@ -57,9 +60,10 @@ export class AppComponent implements OnInit{
     const time = new Date().getTime();
     const celebrationTime = new Date().setHours(18, 0);
     if(day.count < parseInt(hijriToday) || day.count == parseInt(hijriToday) &&  time > celebrationTime){
-      // this.openDialog(day);
-      this.gift = day.event;
+      this.openDialog(day);
       this.celebrate(day);
+      this.visible = true;
+      this.gift = day.event;
     }
   }
   
