@@ -45,6 +45,10 @@ export class AppComponent implements OnInit{
         this.days[randIndex] = temp;
     }
   }
+  gift:string = "";
+  test(){
+    this.gift = "test";
+  }
 
   onClickDay(day:Day){
     const hijri = new Intl.DateTimeFormat('en-TN-u-ca-islamic', {day: 'numeric', month: 'long',weekday: 'long',year : 'numeric'}).format(Date.now());
@@ -52,7 +56,8 @@ export class AppComponent implements OnInit{
     const time = new Date().getTime();
     const celebrationTime = new Date().setHours(18, 0);
     if(day.count < parseInt(hijriToday) || day.count == parseInt(hijriToday) &&  time > celebrationTime){
-      this.celebrate(day);
+      this.test();
+      // this.celebrate(day);
       console.log(hijriToday);
     }
   }
