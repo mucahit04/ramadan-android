@@ -58,43 +58,43 @@ export class AppComponent implements OnInit{
     const celebrationTime = new Date().setHours(18, 0);
     if(day.count < parseInt(hijriToday) || day.count == parseInt(hijriToday) &&  time > celebrationTime){
       this.test();
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-      });
       // this.celebrate(day);
       console.log(hijriToday);
     }
   }
-
+  
   celebrate(day:Day) {
-    var duration = 5 * 1000;
-    var end = Date.now() + duration;
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+    // var duration = 5 * 1000;
+    // var end = Date.now() + duration;
 
-    (function frame() {
-      // launch a few confetti from the left edge
-      confetti({
-        particleCount: 7,
-        angle: 60,
-        shapes :['star', 'square', 'circle'],
-        spread: 75,
-        origin: { x: 0 }
-      });
-      // and launch a few from the right edge
-      confetti({
-        particleCount: 7,
-        angle: 120,
-        spread: 75,
-        shapes :['star', 'square', 'circle'],
-        origin: { x: 1 }
-      });
+    // (function frame() {
+    //   // launch a few confetti from the left edge
+    //   confetti({
+    //     particleCount: 7,
+    //     angle: 60,
+    //     shapes :['star', 'square', 'circle'],
+    //     spread: 75,
+    //     origin: { x: 0 }
+    //   });
+    //   // and launch a few from the right edge
+    //   confetti({
+    //     particleCount: 7,
+    //     angle: 120,
+    //     spread: 75,
+    //     shapes :['star', 'square', 'circle'],
+    //     origin: { x: 1 }
+    //   });
 
-      // keep going until we are out of time
-      if (Date.now() < end) {
-        requestAnimationFrame(frame);
-      }
-    }());
+    //   // keep going until we are out of time
+    //   if (Date.now() < end) {
+    //     requestAnimationFrame(frame);
+    //   }
+    // }());
     this.openDialog(day);
   }
 
