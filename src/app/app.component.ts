@@ -57,6 +57,7 @@ export class AppComponent implements OnInit{
     const celebrationTime = new Date().setHours(18, 0);
     if(day.count < parseInt(hijriToday) || day.count == parseInt(hijriToday) &&  time > celebrationTime){
       this.openDialog(day);
+      this.gift = day.event;
       // this.celebrate(day);
     }
   }
