@@ -11,6 +11,7 @@ import {
 } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatButtonModule } from '@angular/material/button';
+import confetti from 'canvas-confetti';
 
 interface Day {
   count: number,
@@ -56,18 +57,18 @@ export class AppComponent implements OnInit{
     const time = new Date().getTime();
     const celebrationTime = new Date().setHours(18, 0);
     if(day.count < parseInt(hijriToday) || day.count == parseInt(hijriToday) &&  time > celebrationTime){
-      this.openDialog(day);
+      // this.openDialog(day);
       this.gift = day.event;
-      // this.celebrate(day);
+      this.celebrate(day);
     }
   }
   
   celebrate(day:Day) {
-        // confetti({
-    //   particleCount: 100,
-    //   spread: 70,
-    //   origin: { y: 0.6 },
-    // });
+        confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
     
     
     // var duration = 5 * 1000;
@@ -96,7 +97,7 @@ export class AppComponent implements OnInit{
     //     requestAnimationFrame(frame);
     //   }
     // }());
-    this.openDialog(day);
+    // this.openDialog(day);
   }
 
   openDialog(day: Day): void {
