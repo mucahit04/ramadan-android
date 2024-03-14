@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import confetti from 'canvas-confetti';
+// import confetti from 'canvas-confetti';
 import { dayList } from './events-list';
 import {
   MatDialog,
@@ -12,6 +12,7 @@ import {
 } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatButtonModule } from '@angular/material/button';
+import { CircleParticle } from 'confetti.ts';
 
 interface Day {
   count: number,
@@ -64,11 +65,30 @@ export class AppComponent implements OnInit{
   }
   
   celebrate(day:Day) {
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
+    CircleParticle.draw({
+      position: {
+        x: 200,
+        y: 300
+      },
+      radius: 20,
+      color: 'red',
+      movementAngle: {
+        angle: 35,
+        velocity: {
+          x: 1
+        },
+        acceleration: 0.05
+      }
     });
+
+
+    // confetti({
+    //   particleCount: 100,
+    //   spread: 70,
+    //   origin: { y: 0.6 },
+    // });
+    
+    
     // var duration = 5 * 1000;
     // var end = Date.now() + duration;
 
