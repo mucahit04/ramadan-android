@@ -51,6 +51,7 @@ export class AppComponent implements OnInit{
   }
 
   onClickDay(day:Day){
+    this.test();
     const hijri = new Intl.DateTimeFormat('en-TN-u-ca-islamic', {day: 'numeric', month: 'long',weekday: 'long',year : 'numeric'}).format(Date.now());
     const hijriToday = hijri.split('Ramadan')[1].split(',')[0].trim();
     const time = new Date().getTime();
